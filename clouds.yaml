@@ -1,0 +1,12 @@
+clouds:
+  admin:
+    region_name: RegionOne
+    auth:
+      username: admin
+      password: admin
+      project_name: admin
+      project_domain_name: default
+      user_domain_name: default
+      auth_url: http://192.168.56.85/identity
+    log_file: /tmp/openstackclient_admin.log
+    log_level: debug

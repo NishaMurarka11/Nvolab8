@@ -1,0 +1,18 @@
+FROM osrg/ryu
+
+# OpenFlow ports -- de facto (6633) and IANA assigned (6653)
+EXPOSE 6633 6653
+
+# Add Ryu user account
+RUN apt-get -y update \
+    && apt-get -y upgrade \
+    && apt-get install -y vim \
+    && apt -y install iputils-ping \
+    && apt -y install python3 \
+    && apt -y install python3-pip \
+    && groupadd --system ryu \
+    && useradd  --system -d /home/ryu -m -s /bin/bash -g ryu ryu
+
+
+# Default command is to run Ryu against that application
+#CMD ["/usr/local/bin/ryu-manager", "/root/ryu/ryu/app/simple_switch_13.py"]
