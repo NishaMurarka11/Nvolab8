@@ -14,7 +14,7 @@ class create_secGrp:
                 new_sec_group = self.conn.network.create_security_group(
                 name='lab-security')
             
-                print(new_sec_group)
+                #print(new_sec_group)
                 example_rule = self.conn.network.create_security_group_rule(
                     security_group_id=new_sec_group.id,
                     direction='ingress',
@@ -23,7 +23,8 @@ class create_secGrp:
                     port_range_max=None,
                     port_range_min=None,
                     ethertype='IPv4')
-                print(example_rule)
+            os.system('openstack security group show ' + sec_grp_name)
+                #print(example_rule)
             os.popen('openstack server add security group ' + vm_name + ' ' + sec_grp_name ).read()
         except Exception as e:
             print("Failed to create security group with error {}".format(str(e)))

@@ -34,11 +34,17 @@ class create_vm:
             network = self.conn.network.find_network(network)
             keypair = self.create_keypair()
             
-            server = self.conn.compute.create_server(
-                name=name, image_id=image.id, flavor_id=flavor.id,
-                networks=[{"uuid": network.id}], key_name=keypair.name)
-            server = self.conn.compute.wait_for_server(server)
-            print("Server {} created on {} with IP {}".format(name,network,server.access_ipv4 ))
+            instances = os.popen('openstack server list ').read()
+            
+            if name not in instances:
+                server = self.conn.compute.create_server(
+                    name=name, image_id=image.id, flavor_id=flavor.id,
+                    networks=[{"uuid": network.id}], key_name=keypair.name)
+                server = self.conn.compute.wait_for_server(server)
+                print("Server {} created on {} with IP {}".format(name,network,server.access_ipv4 ))
+            else : 
+                print("Instance {} already exists ".format(name))
+            os.system('openstack server show ' + name)
+           
         except Exception as e:
             print("failed to create sever {} with error {}".format(name,str(e)))
-        return "OK"

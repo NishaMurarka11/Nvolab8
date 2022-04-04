@@ -11,7 +11,7 @@ class lab8:
     def create_instance(self,name,network):
         vm = create_vm()
         ret = vm.create_server(name,network)
-        #print(ret)
+        
         
     def create_networks(self,network_name,subnet_name,IP,gateway):
         network = create_network()
@@ -22,11 +22,18 @@ class lab8:
         sec_grp = sec_grp.create_secGrp(vm_name)
     
     def call_openstack(self):
-        #network_details = {'network_name':'lab8_net1','subnet_name':'lab8_subnet1','IP':'20.20.20.0/24','gateway':'20.20.20.1'}
-        #self.create_networks(network_details['network_name'],network_details['subnet_name'],network_details['IP'],network_details['gateway'])
-        #self.create_instance("lab8_instance1","lab8_net1")
-        self.create_security_grp("lab8_instance1")
+        network_details = [{'network_name':'lab8_net1','subnet_name':'lab8_subnet1','IP':'20.20.1.0/24','gateway':'20.20.1.1'},
+                           {'network_name':'lab8_net2','subnet_name':'lab8_subnet2','IP':'20.20.2.0/24','gateway':'20.20.2.1'}]
+                           #{'network_name':'lab8_net3','subnet_name':'lab8_subnet3','IP':'20.20.3.0/24','gateway':'20.20.3.1'}]
+        instance_network = [{'instance_name':'lab8_instance1','network_name':'lab8_net1'},
+                            {'instance_name':'lab8_instance2','network_name':'lab8_net1'},
+                            {'instance_name':'lab8_instance3','network_name':'lab8_net2'}]
+        for network in network_details:
+            self.create_networks(network['network_name'],network['subnet_name'],network['IP'],network['gateway'])
+        for instance in instance_network:
+            self.create_instance(instance['instance_name'],instance['network_name'])
+            self.create_security_grp(instance['instance_name'])
+            
         
-
 instance = lab8()
 instance.call_openstack()
