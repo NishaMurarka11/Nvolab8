@@ -1,3 +1,9 @@
+# Openstack Objective
+Below is the Screen capture of the Program Main.Py that does following 
+1) Create two new networks and subnetwork and connect it external gateway (public network ) using router
+2) Create three instance two of them are in same subnet and one in a different subnet
+3) Create a security group that allow all ICPM and add the group to all instaces. 
+
 ```
 nvolab@nvolab:~/Nvolab8$ python3 Main.py 
 Create Network : lab8_net1
