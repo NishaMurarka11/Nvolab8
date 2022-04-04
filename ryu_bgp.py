@@ -44,6 +44,9 @@ BGP = {
     # - BGPSpeaker.evpn_prefix_add()
     # - BGPSpeaker.flowspec_prefix_add()
     'routes': [
+        {
+            'prefix': '10.10.10.20/30',
+        },
     ],
 }
 # =============================================================================
