@@ -48,5 +48,5 @@ class lab8:
     
        
 instance = lab8()
-#instance.call_openstack()
+instance.call_openstack()
 instance.bgp_docker()
