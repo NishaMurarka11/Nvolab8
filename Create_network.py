@@ -45,7 +45,7 @@ def create_router(subnet_name):
             os.popen('openstack router create ' + router_name).read()
             os.popen('openstack router set SDN_LAB8 --external-gateway public').read()
         os.popen('openstack router add subnet ' + router_name + ' ' + subnet_name).read()
-        os.popen('openstack router show ' + router_name)  
+        os.system('openstack router show ' + router_name)  
     except Exception as e:
         print("Failed to add router with subnet {} with error {}".format(subnet_name,str(e)))
     
