@@ -331,6 +331,6 @@ nvolab@nvolab:~/Nvolab8$
 ![alt text](https://github.com/NishaMurarka11/Nvolab8/blob/master/VM2_connectivity.png)
 
 # BGP between Ryu Sdn Controller and FRR running as container
-![alt_text](https://github.com/NishaMurarka11/Nvolab8/blob/master/BGP_logs.png)
-![alt_text](https://github.com/NishaMurarka11/Nvolab8/blob/master/Docker_logs.png)
+![alt_text](https://github.com/NishaMurarka11/Nvolab8/blob/master/BGP_LOG.png)
+![alt_text](https://github.com/NishaMurarka11/Nvolab8/blob/master/BGP_FRR.png)
 
